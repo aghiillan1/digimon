@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digimon Submission Form</title>
+    <link rel="stylesheet" href="submissionform.css">
+</head>
+<body>
+    <a href="../Welcome Page/welcomepage.html" class="home-button">Home Page</a>
+    <a href="../After Login Page/afterloginpage.html" class="back-button">Back</a>
+    <div class="submission-container">
+        <h1>Digimon Submission Form</h1>
+        <form id="submission-form">
+            <!-- Digimon Name -->
+            <label for="digimon-name">Digimon Name (3–20 characters):</label>
+            <input type="text" id="digimon-name" name="digimon-name" placeholder="Enter Digimon name">
+            <span id="digimon-name-error" class="error-message"></span>
+
+            <!-- Digivolution Level -->
+            <label for="digivolution-level">Digivolution Level:</label>
+            <select id="digivolution-level" name="digivolution-level">
+                <option value="" disabled selected>Select level</option>
+                <option value="In-Training">In-Training</option>
+                <option value="Rookie">Rookie</option>
+                <option value="Champion">Champion</option>
+                <option value="Ultimate">Ultimate</option>
+                <option value="Mega">Mega</option>
+            </select>
+
+<!-- Elements Section -->
+<div class="form-group">
+    <label><b>Elements:</b></label>
+    <div class="elements-container">
+        <label><input type="checkbox" name="element" value="Fire"> Fire</label>
+        <label><input type="checkbox" name="element" value="Water"> Water</label>
+        <label><input type="checkbox" name="element" value="Earth"> Earth</label>
+        <label><input type="checkbox" name="element" value="Air"> Air</label>
+        <label><input type="checkbox" name="element" value="Light"> Light</label>
+        <label><input type="checkbox" name="element" value="Dark"> Dark</label>
+        <label>
+            <input type="checkbox" id="etc-checkbox" value="ETC"> ETC
+        </label>
+        <!-- ETC input field -->
+    </div>
+    <div id="etc-inputs" style="margin-top: 10px;"></div>
+    <span id="elements-error" class="error-message" style="display: none;">Please select at least one element.</span>
+</div>
+
+            <!-- Description -->
+            <label for="description">Description (min. 100 characters):</label>
+            <textarea id="description" name="description" placeholder="Describe your Digimon"></textarea>
+            <span id="description-error" class="error-message"></span>
+
+            <!-- Signature Attack Name -->
+            <label for="attack-name">Signature Attack Name:</label>
+            <input type="text" id="attack-name" name="attack-name" placeholder="Enter unique attack name">
+            <span id="attack-name-error" class="error-message"></span>
+
+            <!-- Image Upload -->
+        <label for="digimon-image">Upload Digimon Image (JPG/PNG, max 2MB):</label>
+        <input type="file" id="digimon-image" name="digimon-image" accept=".jpg, .jpeg, .png">
+        <span id="digimon-image-error" class="error-message"></span>
+
+            <!-- Rarity -->
+            <fieldset>
+                <legend>Rarity:</legend>
+                <label><input type="radio" name="rarity" value="Common"> Common</label>
+                <label><input type="radio" name="rarity" value="Rare"> Rare</label>
+                <label><input type="radio" name="rarity" value="Legendary"> Legendary</label>
+                <span id="rarity-error" class="error-message" style="display: none;"></span>
+            </fieldset>
+
+            <!-- Origin Story (Hidden by Default) -->
+            <div id="origin-story-container" style="display: none; margin-top: 10px;">
+                <label for="origin-story">Origin Story (min. 150 characters):</label>
+                <textarea id="origin-story" name="origin-story" placeholder="Enter origin story"></textarea>
+                <span id="origin-story-error" class="error-message" style="display: none;"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="submissionform.js"></script>
+</body>
+</html>

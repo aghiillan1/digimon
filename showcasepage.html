@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digimon Showcase</title>
+    <link rel="stylesheet" href="showcasepage.css">
+</head>
+<body>
+    <a href="../Welcome Page/welcomepage.html" class="home-button">Home Page</a>
+    <a href="../After Login Page/afterloginpage.html" class="back-button">Back</a>
+    <button id="random-digimon-btn" class="random-digimon-btn">Generate Random Digimon</button>
+    
+    <div class="showcase-container">
+        <header>
+            <h1>Digimon Showcase</h1>
+            <p class="subtitle">Your collection of created Digimon</p>
+        </header>
+        
+        <div class="controls">
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Search Digimon...">
+                <button id="search-btn">Search</button>
+            </div>
+            <div id="filter-container">
+                <select id="rarity-filter">
+                    <option value="">All Rarities</option>
+                    <option value="Common">Common</option>
+                    <option value="Rare">Rare</option>
+                    <option value="Legendary">Legendary</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="digimon-list" class="digimon-list">
+            <!-- Cards will be dynamically added here by JavaScript -->
+        </div>
+        
+        <div id="empty-state" class="empty-state">
+            <!-- Changed to local placeholder image -->
+            <img src="../Pictures/digimon_placeholder.jpg" alt="No Digimon" class="empty-icon">
+            <h2>No Digimon Created Yet</h2>
+            <p>Submit your first Digimon through the submission form!</p>
+            <a href="../Submission Form Page/submissionform.html" class="cta-button">Create Digimon</a>
+        </div>
+    </div>
+
+    <!-- Evolution Tree Modal -->
+    <div id="evolution-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title">Evolution Tree</h2>
+            <div class="evolution-tree">
+                <!-- All images now point to local files -->
+                <div class="evolution-stage">
+                    <h3>Fresh</h3>
+                    <div class="digimon-evo" id="fresh-stage">
+                        <img src="../Pictures/punimon.jpg" alt="Fresh Digimon" class="evo-image"
+                             onerror="this.src='../Pictures/digimon_placeholder.jpg'">
+                        <p class="evo-name">Punimon</p>
+                    </div>
+                </div>
+                <div class="evolution-arrow">↓</div>
+                <div class="evolution-stage">
+                    <h3>In-Training</h3>
+                    <div class="digimon-evo" id="in-training-stage">
+                        <img src="../Pictures/tsunomon.jpg" alt="In-Training Digimon" class="evo-image"
+                             onerror="this.src='../Pictures/digimon_placeholder.jpg'">
+                        <p class="evo-name">Tsunomon</p>
+                    </div>
+                </div>
+                <div class="evolution-arrow">↓</div>
+                <div class="evolution-stage">
+                    <h3>Rookie</h3>
+                    <div class="digimon-evo" id="rookie-stage">
+                        <img src="../Pictures/agumon.jpg" alt="Rookie Digimon" class="evo-image"
+                             onerror="this.src='../Pictures/digimon_placeholder.jpg'">
+                        <p class="evo-name">Agumon</p>
+                    </div>
+                </div>
+                <div class="evolution-arrow">↓</div>
+                <div class="evolution-stage">
+                    <h3>Champion</h3>
+                    <div class="digimon-evo" id="champion-stage">
+                        <img src="../Pictures/greymon.jpg" alt="Champion Digimon" class="evo-image"
+                             onerror="this.src='../Pictures/digimon_placeholder.jpg'">
+                        <p class="evo-name">Greymon</p>
+                    </div>
+                </div>
+                <div class="evolution-arrow">↓</div>
+                <div class="evolution-stage">
+                    <h3>Ultimate</h3>
+                    <div class="digimon-evo" id="ultimate-stage">
+                        <img src="../Pictures/metalgreymon.jpg" alt="Ultimate Digimon" class="evo-image"
+                             onerror="this.src='../Pictures/digimon_placeholder.jpg'">
+                        <p class="evo-name">MetalGreymon</p>
+                    </div>
+                </div>
+                <div class="evolution-arrow">↓</div>
+                <div class="evolution-stage">
+                    <h3>Mega</h3>
+                    <div class="digimon-evo" id="mega-stage">
+                        <img src="../Pictures/wargreymon.jpg" alt="Mega Digimon" class="evo-image"
+                             onerror="this.src='../Pictures/digimon_placeholder.jpg'">
+                        <p class="evo-name">WarGreymon</p>
+                    </div>
+                </div>
+            </div>
+            <div class="evolution-options">
+                <button id="random-evolution-btn">Random Evolution Chain</button>
+                <button id="close-evolution-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Random Digimon Generator Modal -->
+    <div id="random-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Your Random Digimon</h2>
+            <div class="random-digimon-result">
+                <div class="random-digimon-image">
+                    <img id="random-digimon-img" src="../Pictures/digimon_placeholder.jpg" alt="Random Digimon">
+                </div>
+                <div class="random-digimon-info">
+                    <h3 id="random-digimon-name">Digimon Name</h3>
+                    <p><strong>Level:</strong> <span id="random-digimon-level">Rookie</span></p>
+                    <p><strong>Type:</strong> <span id="random-digimon-type">Reptile</span></p>
+                    <p><strong>Attribute:</strong> <span id="random-digimon-attribute">Vaccine</span></p>
+                    <p><strong>Special Attack:</strong> <span id="random-digimon-attack">Pepper Breath</span></p>
+                </div>
+            </div>
+            <div class="random-options">
+                <button id="save-random-digimon">Save to Collection</button>
+                <button id="generate-another">Generate Another</button>
+                <button id="close-random-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="showcasepage.js"></script>
+</body>
+</html>

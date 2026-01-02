@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Digimon Fan Website</title>
+    <link rel="stylesheet" href="welcomepage.css">
+</head>
+<body>
+    <audio id="background-audio" autoplay loop>
+        <source src="../Pictures/welcomepagesound.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="video-container">
+        <!-- Background Video -->
+        <video id="background-video" autoplay muted playsinline>
+            <source src="../Pictures/digimonvideo.mp4" type="video/mp4">
+        </video>
+        <!-- Gray Overlay -->
+        <div id="overlay" class="overlay"></div>
+        <!-- Content -->
+        <div class="content hidden">
+            <h1>Welcome to the Digimon Fan Website</h1>
+            <p>Explore the adventures of your favorite Digimon and become a part of the digital world!</p>
+            <div class="button-container">
+                <button id="register-button">Click to Register</button>
+                <button id="login-button">Click to Log In</button>
+            </div>
+            <div class="button-container"></div>
+        </div>
+    </div>
+    <script src="welcomepage.js"></script>
+</body>
+</html>

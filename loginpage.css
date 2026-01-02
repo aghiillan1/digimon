@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../Pictures/digimonwallpaper.jpg');
+    background-size: cover;
+    color: #333;
+    display: flex; /* Center the login container on the page */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.login-container {
+    max-width: 400px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Center align all content */
+}
+
+h1 {
+    color: #FF4500;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center elements horizontally */
+}
+
+form label {
+    width: 100%; /* Full width for proper alignment */
+    text-align: left;
+    margin: 20px 0 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    max-width: 300px; /* Optional: Restrict input width */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+form button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #FF4500, #FFC100);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, background-color 0.3s;
+    width: 100%; /* Optional: Match input width */
+    max-width: 200px; /* Optional: Restrict button width */
+    margin-top: 20px;
+}
+
+form button:hover {
+    transform: scale(1.1);
+    background-color: #FF6700;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Home Button Styles */
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #FF4500, #FFC100);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+    z-index: 100;
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #FF5500, #FFD100);
+}

@@ -1,0 +1,180 @@
+/* Existing styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../Pictures/digimonwallpaper.jpg');
+    background-size: cover;
+    background-attachment: fixed; /* Ensure background stays fixed */
+    color: #333;
+}
+
+.submission-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    border-radius: 12px; /* Slightly larger border-radius for a softer look */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Deeper shadow for emphasis */
+}
+
+h1 {
+    text-align: center;
+    color: #FF4500;
+    font-weight: bold;
+    font-size: 1.8rem; /* Slightly larger heading */
+}
+
+form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 12px; /* Slightly larger padding for better usability */
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing only */
+    min-height: 100px; /* Set a minimum height for better usability */
+}
+
+.checkbox-group, .radio-group {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping if necessary */
+    gap: 10px; /* Space between items */
+    margin-bottom: 15px;
+    align-items: center; /* Vertically align checkboxes and labels */
+}
+
+.checkbox-group label, .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between checkbox/radio and text */
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    accent-color: #FF4500; /* Customize checkbox/radio color */
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px; /* Slightly larger border-radius for better aesthetics */
+    font-size: 1.2rem; /* Slightly larger font size for buttons */
+    font-weight: bold;
+    background-color: #FF4500;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    margin-top: 20px; /* Added margin to separate from the rarity section */
+}
+
+form button:hover {
+    background-color: #FF6700;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Default error message styles */
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: -10px; /* Keep alignment above the next input */
+    margin-bottom: 10px;
+    font-weight: bold;
+    display: none; /* Hidden by default */
+}
+
+/* Specific adjustment for rarity error */
+#rarity-error {
+    margin-top: 10px; /* Ensure space below rarity fieldset */
+    margin-bottom: 0; /* Remove extra space if unnecessary */
+    display: block; /* Make sure the error aligns outside the box */
+}
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 600px) {
+    .submission-container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    form button {
+        font-size: 1rem;
+    }
+}
+
+/* Style for the file input */
+input[type="file"] {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Home Button Styles */
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #FF4500, #FFC100);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+    z-index: 100;
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #FF5500, #FFD100);
+}
+
+/* Home Button Styles */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 160px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #0066CC, #00BFFF);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+    z-index: 100;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #0066CC, #00BFFF);
+}

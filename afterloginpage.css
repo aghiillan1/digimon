@@ -1,0 +1,120 @@
+/* afterloginpage.css - Digimon Hub Theme */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../Pictures/digimonwallpaper.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.hub-container {
+    max-width: 500px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 60px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    border: 3px solid #FF4500;
+    animation: pulse-glow 3s infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 15px rgba(255, 69, 0, 0.5); }
+    100% { box-shadow: 0 0 30px rgba(255, 193, 0, 0.7); }
+}
+
+h1 {
+    color: #FF4500;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.hub-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    gap: 30px; /* Space between buttons */
+    margin-top: 30px;
+}
+
+button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #FF4500, #FFC100);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+    width: 180px; /* Fixed width for equal-sized buttons */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0; /* Prevents buttons from shrinking */
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(45deg, #FF5500, #FFD100);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Digimon-themed button effects */
+button::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    transition: all 0.5s;
+}
+
+button:hover::after {
+    left: 100%;
+}
+
+/* Home Button Styles */
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #FF4500, #FFC100);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+    z-index: 100;
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #FF5500, #FFD100);
+}

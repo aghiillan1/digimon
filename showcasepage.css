@@ -1,0 +1,710 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../Pictures/digimonwallpaper.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Fallback background if image doesn't load */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff4500 0%, #ffc100 100%);
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* Main Container */
+.showcase-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #FF4500;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    color: #555;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Search and Filter Controls */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+#search-container {
+    display: flex;
+    flex-grow: 1;
+    max-width: 400px;
+    min-width: 250px;
+}
+
+#search-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 2px solid #FF4500;
+    border-radius: 5px 0 0 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: #FF6700;
+}
+
+#search-btn {
+    padding: 10px 20px;
+    background-color: #FF4500;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+#search-btn:hover {
+    background-color: #FF6700;
+}
+
+#rarity-filter {
+    padding: 10px 15px;
+    border: 2px solid #FF4500;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+    min-width: 180px;
+}
+
+/* Digimon List Grid */
+.digimon-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Card Styles */
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-color: #FF4500;
+}
+
+.card-img-container {
+    flex: 1;
+    min-height: 200px;
+    max-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f8f8f8;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,69,0,0.1) 0%, rgba(255,193,0,0.1) 100%);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    color: #FF4500;
+}
+
+.card-meta {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-meta b {
+    color: #555;
+}
+
+.card-description {
+    color: #666;
+    margin: 10px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.card-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Button Styles */
+.view-evolution-btn, .delete-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+.view-evolution-btn {
+    background-color: #FF4500;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.view-evolution-btn:hover {
+    background-color: #FF6700;
+}
+
+.delete-btn {
+    background-color: #f1f1f1;
+    color: #ff4444;
+    border: 1px solid #ffdddd;
+}
+
+.delete-btn:hover {
+    background-color: #ffdddd;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    grid-column: 1 / -1;
+}
+
+.empty-icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.empty-state h2 {
+    color: #FF4500;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #FF4500;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #FF6700;
+    transform: translateY(-2px);
+}
+
+/* Origin Story Styles */
+.origin-story-container {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #ddd;
+}
+
+.origin-story-label {
+    font-weight: bold;
+    color: #FF4500;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.origin-story-text {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.description-label {
+    font-weight: bold;
+    color: #FF4500;
+    margin-bottom: 5px;
+}
+
+.card-description-container {
+    margin: 10px 0;
+}
+
+/* Navigation Button Styles */
+.home-button, .back-button, .random-digimon-btn {
+    position: fixed;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+    z-index: 100;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.home-button {
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(45deg, #FF4500, #FFC100);
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #FF5500, #FFD100);
+}
+
+.back-button {
+    top: 20px;
+    left: 160px;
+    background: linear-gradient(45deg, #0066CC, #00BFFF);
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #0077DD, #00CCFF);
+}
+
+.random-digimon-btn {
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #4CAF50, #8BC34A);
+}
+
+.random-digimon-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #45a049, #7CB342);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    overflow-y: auto;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    border: 2px solid #FF4500;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+    background: none;
+    border: none;
+}
+
+.close-button:hover {
+    color: #FF4500;
+}
+
+#modal-title {
+    color: #FF4500;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.evolution-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.evolution-stage {
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+
+.evolution-stage h3 {
+    color: #FF4500;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.digimon-evo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.evo-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+}
+
+.evo-name {
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0 0;
+}
+
+.evolution-arrow {
+    font-size: 24px;
+    color: #FF4500;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.evolution-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Random Digimon Modal Styles */
+.random-digimon-result {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.random-digimon-image {
+    flex: 1;
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.random-digimon-image img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 2px solid #FF4500;
+}
+
+.random-digimon-info {
+    flex: 2;
+}
+
+.random-digimon-info h3 {
+    color: #FF4500;
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+.random-digimon-info p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.random-digimon-info strong {
+    color: #555;
+}
+
+.random-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Button Styles for Modals */
+#random-evolution-btn, 
+#close-evolution-btn,
+#save-random-digimon, 
+#generate-another, 
+#close-random-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#random-evolution-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#random-evolution-btn:hover {
+    background-color: #45a049;
+}
+
+#close-evolution-btn {
+    background-color: #FF4500;
+    color: white;
+}
+
+#close-evolution-btn:hover {
+    background-color: #FF6700;
+}
+
+#save-random-digimon {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#save-random-digimon:hover {
+    background-color: #45a049;
+}
+
+#generate-another {
+    background-color: #2196F3;
+    color: white;
+}
+
+#generate-another:hover {
+    background-color: #0b7dda;
+}
+
+#close-random-btn {
+    background-color: #FF4500;
+    color: white;
+}
+
+#close-random-btn:hover {
+    background-color: #FF6700;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+    }
+    
+    #search-container {
+        max-width: 100%;
+    }
+    
+    .digimon-list {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+        padding: 20px;
+    }
+
+    .home-button, .back-button, .random-digimon-btn {
+        position: relative;
+        top: auto;
+        left: auto;
+        display: inline-block;
+        margin: 10px;
+        width: calc(100% - 20px);
+    }
+
+    .showcase-container {
+        padding-top: 20px;
+    }
+
+    .random-digimon-result {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .random-digimon-info {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .evolution-stage {
+        padding: 10px;
+    }
+    
+    .evo-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .evolution-options, .random-options {
+        flex-direction: column;
+    }
+    
+    #random-evolution-btn, #close-evolution-btn,
+    #save-random-digimon, #generate-another, #close-random-btn {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .card-content h2 {
+        font-size: 1.3rem;
+    }
+}
+
